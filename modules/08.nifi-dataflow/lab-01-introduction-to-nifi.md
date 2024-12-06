@@ -22,12 +22,20 @@ duration: >=1h
 
 Start a new project directory and add two sub-directories, `./source` and `./sink`. Make sure to be in the base level of the project directory when you start the lab. Add a "hello-nifi.txt" file to your base directory and copy it to the source directory. PLEASE NOTE: IT IS VERY IMPORTANT TO ENSURE THAT YOU ARE IN AN EMPTY DIRECTORY WHEN LAUNCHING YOUR DOCKER CONTAINER! This lab will be demonstrating how to use NiFi to automatically move files, and as such it is VERY IMPORTANT to ensure you are only moving the files intended ("hello-nifi.txt").  
 
+```bash
+cd ./01.nifi-dataflow/
+
+mkdir source && mkdir sink
+
+vim ./source/hello-nifi.txt
+```
+
 ## 1. Set up the environment
 
 For the NiFi Labs, we will be setting up and utilizing two Docker containers, [NiFi](https://hub.docker.com/r/apache/nifi) and [NiFi-Registry](https://hub.docker.com/r/apache/nifi-registry).  
 *Note*: If needed, you can review the Docker commands with `docker --help`, `docker run --help`, and/or [here: Ultimate Docker Cheat Sheet](https://dockerlabs.collabnix.com/docker/cheatsheet/) and [here: Docker Reference-Running Containers](https://docs.docker.com/engine/reference/run/)
 
-1. Ensure that you are in the project directory that you created in the prerequisites. DO NOT SKIP THE STEP OF SETTING UP A NEW EMPTY PROJECT DIRECTORY FOR THIS LAB!  
+1. Ensure that you are in the project directory that you created in the prerequisites. DO NOT SKIP THE STEP OF SETTING UP A NEW EMPTY PROJECT DIRECTORY FOR THIS LAB!
 2. Run NiFi Docker image with the following command:
 
 ```bash
@@ -58,7 +66,7 @@ apache/nifi-registry:1.26.0
 
 Access the NiFi-Registry ui here: http://localhost:18080/nifi-registry
 
-4. In a terminal run `docker inspect nifi-registry-latest` and make note of the "Gateway" ip.
+4. In a terminal run `docker inspect nifi-registry-126` and make note of the "Gateway" ip.
 5. Open settings (wrench icon located in the top right corner)
 6. Create `NEW BUCKET`.
 7. Open NiFi ui and open `Controller Settings` (accessed through the hamburger in the top right corner of the UI).
